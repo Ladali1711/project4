@@ -1,15 +1,15 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express'); 
+const router = express.Router(); 
 
-const collegeModel = require("../model/collegeModel")
-const collegeControl  = require("../controller/collegeController")
-const internControl  = require("../controller/internController")
+const userController = require('../controller/user.controller');
+const bookController = require('../controller/book.controller'); 
 
-router.post("/colleges", collegeControl.createCollege)
+const authMiddleware = require('../middleware/auth.middleware');
 
-router.post("/interns", internControl.createIntern)
+router.post('/register', userController.userRegister); 
+router.post('/login', userController.login); 
 
-router.get("/collegeDetails", collegeControl.collegeDetails)
+router.post('/book', authMiddleware.auth, bookController.createBook); 
 
 
-module.exports = router;
+module.exports = router; 
