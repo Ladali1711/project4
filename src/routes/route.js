@@ -1,15 +1,9 @@
-const express = require('express'); 
-const router = express.Router(); 
+const express = require('express')
+const router = express.Router()
+const url = require('../controller/urlController')
 
-const userController = require('../controller/user.controller');
-const bookController = require('../controller/book.controller'); 
-
-const authMiddleware = require('../middleware/auth.middleware');
-
-router.post('/register', userController.userRegister); 
-router.post('/login', userController.login); 
-
-router.post('/book', authMiddleware.auth, bookController.createBook); 
+router.post('/url/shorten' , url.createShortURL )
+router.get('/:urlCode', url.redirectToOriginalURL)
 
 
-module.exports = router; 
+module.exports = router;
