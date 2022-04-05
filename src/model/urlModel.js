@@ -29,26 +29,3 @@ UrlSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model('Url', UrlSchema)
 
-// const mongoose = require('mongoose')
-
-
-// const URLSchema = new mongoose.Schema({
-//     urlCode: {
-//         type: String,
-//         required: [true, 'The urlCode field is required'],
-//         unique: true,
-//         trim: true
-//     },
-//     longUrl: String,
-//     shortUrl:   {
-//         type: String,
-
-//         required: [true, 'The shortUrl field is required'],
-//         unique: true,
-      
-//     },
- 
-// })
-
-
-// module.exports = mongoose.model('Url', URLSchema)
